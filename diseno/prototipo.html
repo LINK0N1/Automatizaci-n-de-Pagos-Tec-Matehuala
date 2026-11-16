@@ -124,8 +124,8 @@ ${CAT.map((c,i)=>`<label class="opt"><input type="radio" name="cuota" value="${c
 <div class="row"><button class="btn sec" type="button" data-go="inicio">Atrás</button><button class="btn" type="submit">Continuar</button></div></form>`;
 V.linea=()=>{const c=state.cuota;return `${stepper(2)}<h1>Pago con tarjeta</h1><p class="lead">Vas a pagar <b>${c.nombre}</b> por <b>${money(c.monto)}</b>.</p>
 <form class="card grid" id="f3"><p class="hint" style="margin:0;color:var(--warn);font-weight:600">Modo de prueba: usa la tarjeta de prueba que ya está escrita. No uses una tarjeta real.</p>
-<div><label for="tj">Número de tarjeta de prueba</label><input id="tj" type="text" value="4242 4242 4242 4242" inputmode="numeric" autocomplete="off"></div>
-<div class="row"><div style="flex:1;min-width:120px"><label for="vc">Vencimiento</label><input id="vc" type="text" value="12/34"></div><div style="flex:1;min-width:120px"><label for="cv">Código</label><input id="cv" type="text" value="123"></div></div>
+<div><label for="tj">Número de tarjeta de prueba</label><input id="tj" type="text" value="4242 4242 4242 4242" inputmode="numeric" maxlength="19" placeholder="0000 0000 0000 0000" autocomplete="off"></div>
+<div class="row"><div style="flex:1;min-width:120px"><label for="vc">Vencimiento</label><input id="vc" type="text" value="12/34" inputmode="numeric" placeholder="MM/AA" maxlength="5" autocomplete="off"></div><div style="flex:1;min-width:120px"><label for="cv">Código</label><input id="cv" type="text" value="123" inputmode="numeric" maxlength="3" autocomplete="off"></div></div>
 <div class="row"><button class="btn sec" type="button" data-go="cuota">Atrás</button><button class="btn" type="submit">Pagar ${money(c.monto)}</button></div></form>`};
 V.ref=()=>{const c=state.cuota;return `${stepper(2)}<h1>Tu referencia de pago</h1><p class="lead">Paga <b>${money(c.monto)}</b> por <b>${c.nombre}</b> en cualquier cajero BBVA o por transferencia usando esta referencia. Guárdala o captura la pantalla.</p>
 <div class="card"><div class="mini">Referencia (válida solo para este pago)</div><div class="ref" id="rr">${state.ref}</div>
@@ -170,8 +170,11 @@ function go(v,role){if(role)state.role=role;state.view=v;render();window.scrollT
 window.go=go;
 function bind(){
   document.querySelectorAll('[data-go]').forEach(a=>a.onclick=e=>{e.preventDefault();go(a.dataset.go)});
-  const f1=$('#f1');if(f1)f1.onsubmit=e=>{e.preventDefault();const v=$('#nc').value.trim();if(!/^\d{8}$/.test(v)){const h=$('#nch');h.textContent='Revisa tu número de control: deben ser 8 números.';h.style.color='var(--alert)';$('#nc').focus();return}go('cuota')};
+  const f1=$('#f1');if(f1)f1.onsubmit=e=>{e.preventDefault();const v=$('#nc').value.trim();if(!/^\d{8}$/.test(v)){const h=$('#nch');h.textContent='Revisa tu número de control: deben ser 8 números.';h.style.color='var(--alert)';$('#nc').focus();return}ALUMNO.control=v;go('cuota')};
   const f2=$('#f2');if(f2)f2.onsubmit=e=>{e.preventDefault();state.cuota=CAT.find(c=>c.id===f2.cuota.value);state.forma=f2.forma.value;if(state.forma==='linea')go('linea');else{state.ref=ALUMNO.control+dig(ALUMNO.control)+String(CAT.indexOf(state.cuota)+1);go('ref')}};
+  const tj=$('#tj');if(tj)tj.oninput=()=>{tj.value=tj.value.replace(/\D/g,'').slice(0,16).replace(/(\d{4})(?=\d)/g,'$1 ')};
+  const vc=$('#vc');if(vc)vc.oninput=()=>{const d=vc.value.replace(/\D/g,'').slice(0,4);vc.value=d.length>2?d.slice(0,2)+'/'+d.slice(2):d};
+  const cv=$('#cv');if(cv)cv.oninput=()=>{cv.value=cv.value.replace(/\D/g,'').slice(0,3)};
   const f3=$('#f3');if(f3)f3.onsubmit=e=>{e.preventDefault();addPago('Confirmado');go('listo')};
   const cp=$('#cp');if(cp)cp.onclick=()=>{try{navigator.clipboard.writeText(state.ref).then(()=>toast('Referencia copiada'),()=>toast('Selecciona y copia la referencia'))}catch(e){toast('Selecciona y copia la referencia')}};
   const sim=$('#sim');if(sim)sim.onclick=()=>{addPago('Confirmado');toast('El banco registró tu pago');go('listo')};
