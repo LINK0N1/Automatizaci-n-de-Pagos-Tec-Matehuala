@@ -20,7 +20,7 @@ Es una página web navegable con datos inventados. Simula el portal donde el alu
 
 El código de la página y su base de datos, que hacen funcionar la dirección de arriba, están en un **repositorio aparte**: [zizi-pagos](https://github.com/LINK0N1/zizi-pagos).
 
-En este repositorio, la carpeta **`Material/`** contiene también el código (`index.html`) y la base de datos (`BD_ZIZI_Pagos.xlsx`). Esa copia no tiene una dirección web propia, pero es prácticamente lo mismo que está publicado.
+En este repositorio, la carpeta **`Web/`** contiene también el código (`index.html`) y la base de datos (`BD_ZIZI_Pagos.xlsx`). Esa copia no tiene una dirección web propia, pero es prácticamente lo mismo que está publicado.
 
 ## Instrucciones de uso
 
@@ -35,7 +35,7 @@ En este repositorio, la carpeta **`Material/`** contiene también el código (`i
 
 ### Datos que valida la página
 
-Los datos de la base de datos, [BD_ZIZI_Pagos.xlsx](https://github.com/LINK0N1/zizi-pagos/blob/main/BD_ZIZI_Pagos.xlsx) (también en la carpeta `Material/` de este repositorio), **son los que valida la página**. Por eso, para que funcione hay que usar los datos de ese archivo: el número de control tiene que existir en la hoja `Alumnos`.
+Los datos de la base de datos, [BD_ZIZI_Pagos.xlsx](https://github.com/LINK0N1/zizi-pagos/blob/main/BD_ZIZI_Pagos.xlsx) (también en la carpeta `Web/` de este repositorio), **son los que valida la página**. Por eso, para que funcione hay que usar los datos de ese archivo: el número de control tiene que existir en la hoja `Alumnos`.
 
 Ejemplos de la hoja `Alumnos`:
 
@@ -72,7 +72,7 @@ El número, el vencimiento y el código deben coincidir con los de la tabla; el 
 
 - `docs/` entregas en PDF (E2, E3)
 - `diseno/` BPMN TO-BE, arquitectura, wireframes y el primer prototipo
-- `Material/` código y base de datos de la página
+- `Web/` código y base de datos de la página
 - `src/` código del proyecto (E4)
 
 ## Pila tecnológica
