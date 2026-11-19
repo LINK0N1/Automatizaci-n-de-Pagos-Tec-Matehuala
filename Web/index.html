@@ -12,7 +12,7 @@
    PICTURE: the live card drawn on canvas while you type, and the receipt itself.
    COLOUR and TYPE: ZIZI navy #0B3F78 + teal #0E8A93, green only for approved; Manrope + Inter.
    LAYOUT: form on the left, sticky summary with the price on the right; stacks under 880px. */
-:root{color-scheme:light dark;--bg:light-dark(#eef2f7,#0a1322);--card:light-dark(#fff,#111d31);--ink:light-dark(#14233b,#e6edf7);--mut:light-dark(#5b6b82,#9aabc4);--line:light-dark(#dce3ec,#22324d);--soft:light-dark(#f5f8fb,#0e192b);--navy:#0B3F78;--navy2:light-dark(#0B3F78,#5d9be0);--teal:#0E8A93;--ok:#12A150;--okbg:light-dark(#e3f6ea,#0f2e20);--bad:light-dark(#c8341f,#ff8a78);--badbg:light-dark(#fdecea,#3a1612);--warnbg:light-dark(#fff4d6,#33290d);--warn:light-dark(#7a5700,#f3cf6b)}
+:root{color-scheme:light dark;--bg:light-dark(#eef2f7,#0a1322);--card:light-dark(#fff,#111d31);--ink:light-dark(#14233b,#e6edf7);--mut:light-dark(#5b6b82,#9aabc4);--line:light-dark(#dce3ec,#22324d);--soft:light-dark(#f5f8fb,#0e192b);--navy:#0B3F78;--navy2:light-dark(#0B3F78,#5d9be0);--teal:#0E8A93;--ok:#12A150;--okbg:light-dark(#e3f6ea,#0f2e20);--bad:light-dark(#c8341f,#ff8a78);--badbg:light-dark(#fdecea,#3a1612);--warnbg:light-dark(#fff4d6,#33290d);--warn:light-dark(#7a5700,#f3cf6b);--okt:light-dark(#0B6B35,#6fd69b);--okb:#0D7F43;--teal2:light-dark(#0A6B73,#5cc7d0)}
 :root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
 *{box-sizing:border-box;min-width:0}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 Inter,system-ui,sans-serif;overflow-x:clip}
@@ -39,7 +39,7 @@ button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid 
 .sec{background:var(--card);color:var(--navy2);border-color:var(--line)}
 .ghost{background:none;color:var(--navy2);padding:0 10px}
 .wide{width:100%;min-height:52px;font-size:17px}
-.link{background:none;border:0;color:var(--teal);padding:0;min-height:0;font-weight:600;font-size:14px}
+.link{background:none;border:0;color:var(--teal2);padding:0;min-height:0;font-weight:600;font-size:14px}
 main{max-width:1180px;margin:0 auto;padding:28px max(4vw,16px) 60px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:clamp(18px,2.4vw,26px);box-shadow:0 10px 30px -22px rgba(11,63,120,.45)}
 .stack{display:grid;gap:16px}
@@ -55,7 +55,7 @@ input.err{border-color:var(--bad)}
 .row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
 .g2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px}
 .alert{border-radius:12px;padding:12px 14px;display:flex;gap:10px;align-items:flex-start;font-size:15px}
-.alert.bad{background:var(--badbg);color:var(--bad)}.alert.ok{background:var(--okbg);color:var(--ok)}.alert.warn{background:var(--warnbg);color:var(--warn)}
+.alert.bad{background:var(--badbg);color:var(--bad)}.alert.ok{background:var(--okbg);color:var(--okt)}.alert.warn{background:var(--warnbg);color:var(--warn)}
 /* login */
 .login{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);border-radius:22px;overflow:hidden;background:var(--card);border:1px solid var(--line);min-height:520px;box-shadow:0 20px 50px -30px rgba(11,63,120,.6)}
 .hero{position:relative;background:linear-gradient(140deg,#0B3F78,#0a2c55 55%,#0E8A93);color:#fff;padding:clamp(24px,4vw,44px);display:flex;flex-direction:column;justify-content:space-between;gap:24px;overflow:hidden}
@@ -79,7 +79,7 @@ input.err{border-color:var(--bad)}
 .amt{font:800 22px Manrope,sans-serif;color:var(--navy2);white-space:nowrap;text-align:right}
 .debt .act{display:flex;flex-direction:column;align-items:flex-end;gap:8px}
 .pill{display:inline-flex;align-items:center;gap:4px;border-radius:30px;padding:2px 10px;font-size:13px;font-weight:600;white-space:nowrap}
-.pill.ok{background:var(--okbg);color:var(--ok)}.pill.warn{background:var(--warnbg);color:var(--warn)}.pill.bad{background:var(--badbg);color:var(--bad)}
+.pill.ok{background:var(--okbg);color:var(--okt)}.pill.warn{background:var(--warnbg);color:var(--warn)}.pill.bad{background:var(--badbg);color:var(--bad)}
 .big{font:800 clamp(34px,4.4vw,46px)/1 Manrope,sans-serif;color:var(--navy2);letter-spacing:-.02em;white-space:nowrap}
 .big sup{font-size:.45em;vertical-align:.9em;margin-left:2px}
 /* checkout */
@@ -87,7 +87,7 @@ input.err{border-color:var(--bad)}
 .sum{position:sticky;top:16px}
 .sum .ln{display:flex;justify-content:space-between;gap:10px;padding:6px 0;font-size:15px}
 .sum .ln span:last-child{white-space:nowrap;text-align:right}
-.free{color:var(--ok);font-weight:600}.strike{text-decoration:line-through;color:var(--mut);margin-right:6px;font-size:13px}
+.free{color:var(--okt);font-weight:600}.strike{text-decoration:line-through;color:var(--mut);margin-right:6px;font-size:13px}
 .tot{border-top:1px solid var(--line);margin-top:10px;padding-top:14px;display:flex;justify-content:space-between;align-items:flex-end;gap:10px;flex-wrap:wrap}
 .seg{display:grid;grid-template-columns:1fr 1fr;gap:8px;background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:5px}
 .seg button{background:none;color:var(--ink);border:1.5px solid transparent;min-height:58px;flex-direction:column;gap:0;font-size:15px;line-height:1.2}
@@ -96,11 +96,11 @@ input.err{border-color:var(--bad)}
 .cardfig{display:flex;justify-content:center}
 #cc{width:min(100%,360px);aspect-ratio:1.586;display:block;border-radius:16px;box-shadow:0 18px 30px -18px rgba(11,63,120,.8)}
 .tests{border:1px dashed var(--line);border-radius:12px;padding:10px 14px;font-size:14px}
-.tests summary{cursor:pointer;font-weight:600;color:var(--teal);min-height:28px}
+.tests summary{cursor:pointer;font-weight:600;color:var(--teal2);min-height:28px}
 .tests table{width:100%;border-collapse:collapse;margin-top:6px}.tests td{padding:6px 4px;border-top:1px solid var(--line)}.tests td:nth-child(2){white-space:nowrap}
 .tests button{min-height:34px;font-size:13px;padding:0 10px}
 .refbox{font:800 clamp(24px,3.6vw,34px) "JetBrains Mono",ui-monospace,monospace;letter-spacing:.06em;color:var(--navy2);background:var(--soft);border-radius:14px;padding:14px 18px;text-align:center;overflow-wrap:anywhere}
-.refbox i{color:var(--teal);font-style:normal}
+.refbox i{color:var(--teal2);font-style:normal}
 .ov{position:fixed;inset:0;background:rgba(8,20,40,.55);display:grid;place-items:center;z-index:9}
 .ov .card{text-align:center;max-width:340px}
 .spin{width:54px;height:54px;border-radius:50%;border:5px solid var(--line);border-top-color:var(--teal);margin:0 auto 14px;animation:sp 1s linear infinite}@keyframes sp{to{transform:rotate(360deg)}}
@@ -108,7 +108,7 @@ input.err{border-color:var(--bad)}
 .rc{max-width:620px;margin:0 auto;background:var(--card);border-radius:18px;overflow:hidden;border:1px solid var(--line);box-shadow:0 20px 40px -28px rgba(11,63,120,.7)}
 .rc .top{color-scheme:light;background:#fff;display:flex;align-items:center;justify-content:space-between;padding:14px 22px;gap:10px}
 .rc .top img{height:38px}
-.rc .ok{background:var(--ok);color:#fff;text-align:center;padding:26px 20px 70px}
+.rc .ok{background:var(--okb);color:#fff;text-align:center;padding:26px 20px 70px}
 .rc .ok .ck{width:52px;height:52px;border:2.5px solid #fff;border-radius:50%;display:grid;place-items:center;margin:0 auto 10px}
 .rc .ok h2{font-size:24px;color:#fff}
 .rc .meta{display:flex;justify-content:center;gap:30px;flex-wrap:wrap;margin-top:14px;font-size:14px}
@@ -361,7 +361,8 @@ bind.staff=()=>{$('#imp').onclick=()=>$('#xf').click();$('#xf').onchange=e=>impo
 function luhn(n){let s=0;[...n].reverse().forEach((d,i)=>{let x=+d;if(i%2){x*=2;if(x>9)x-=9}s+=x});return s%10===0}
 function brand(v){const d=v.replace(/\D/g,'');return /^4/.test(d)?'VISA':/^(5[1-5]|2[2-7])/.test(d)?'Mastercard':/^3[47]/.test(d)?'AMEX':''}
 function process(fn,msg){const o=document.createElement('div');o.className='ov';o.innerHTML=`<div class="card" role="status"><div class="spin"></div><b>${msg}</b><p class="hint">No cierres esta ventana.</p></div>`;document.body.appendChild(o);setTimeout(()=>{o.remove();fn()},1800)}
-function approve(d,x){const lp=localPays();const n=1+Math.max(1040,...allPays().map(x=>+String(x.folio).split('-').pop()||0));const now=new Date();const pad=v=>String(v).padStart(2,'0');
+function approve(d,x){const dup=allPays().find(p=>p.ref===d.ref);if(dup){toast('Ese pago ya estaba registrado');return go('rcpt',{folio:dup.folio,fe:null,fv:null,err:null})}
+ const lp=localPays();const n=1+Math.max(1040,...allPays().map(x=>+String(x.folio).split('-').pop()||0));const now=new Date();const pad=v=>String(v).padStart(2,'0');
  const p={folio:`ZP-${now.getFullYear()}-${String(n).padStart(6,'0')}`,fecha:`${now.getFullYear()}-${pad(now.getMonth()+1)}-${pad(now.getDate())} ${pad(now.getHours())}:${pad(now.getMinutes())}`,control:d.control,ref:d.ref,concepto:d.concepto,periodo:d.periodo,monto:d.monto,op:String(Math.floor(7e10+Math.random()*9e9)),...x};
  lp.unshift(p);ls.set('zizi_pagos',lp);go('rcpt',{folio:p.folio,fe:null,fv:null,err:null})}
 
@@ -381,7 +382,7 @@ function drawReceipt(p,noTec){const a=alumno(p.control)||{nombre:'',ap:'',am:'',
  c.fillStyle='#eef2f7';c.fillRect(0,0,W,H);c.fillStyle='#fff';c.fillRect(40,30,W-80,H-60);
  const zl=ZIMG;try{c.drawImage(zl,64,44,150,150*zl.naturalHeight/zl.naturalWidth)}catch(e){}
  const tl=TIMG;if(tl&&!noTec){try{const h=60,w=h*tl.naturalWidth/tl.naturalHeight;c.drawImage(tl,W-64-w,46,w,h)}catch(e){}}
- c.fillStyle='#12A150';c.fillRect(40,130,W-80,250);c.strokeStyle='#fff';c.lineWidth=4;c.beginPath();c.arc(W/2,180,28,0,7);c.stroke();c.beginPath();c.moveTo(W/2-12,181);c.lineTo(W/2-3,190);c.lineTo(W/2+14,171);c.stroke();
+ c.fillStyle='#0D7F43';c.fillRect(40,130,W-80,250);c.strokeStyle='#fff';c.lineWidth=4;c.beginPath();c.arc(W/2,180,28,0,7);c.stroke();c.beginPath();c.moveTo(W/2-12,181);c.lineTo(W/2-3,190);c.lineTo(W/2+14,171);c.stroke();
  c.fillStyle='#fff';c.textAlign='center';c.font='700 34px Manrope,Inter,sans-serif';c.fillText('Tu pago fue aprobado',W/2,250);
  const f=new Date(p.fecha.replace(' ','T'));c.font='500 20px Inter,sans-serif';c.fillText(f.toLocaleDateString('es-MX',{day:'2-digit',month:'long',year:'numeric'})+' · '+f.toLocaleTimeString('es-MX',{hour:'2-digit',minute:'2-digit',hour12:false})+' h',W/2,290);c.fillText('Número de operación #'+p.op,W/2,318);c.font='600 19px Inter,sans-serif';c.fillText('Válido como comprobante de pago',W/2,348);
  c.fillStyle='#fff';c.shadowColor='rgba(0,0,0,.18)';c.shadowBlur=24;rr(c,80,360,W-160,760,18);c.fill();c.shadowBlur=0;
