@@ -18,7 +18,7 @@ Es una página web navegable con datos inventados. Simula el portal donde el alu
 
 ## Dónde está el código
 
-El código de la página y su base de datos, que hacen funcionar la dirección de arriba, están en un **repositorio aparte**: [zizi-pagos](https://github.com/LINK0N1/zizi-pagos).
+El código de la página y su base de datos, que hacen funcionar la dirección de arriba, están en un **repositorio aparte**: [zizi-pagos](https://link0n1.github.io/zizi-pagos/).
 
 En este repositorio, la carpeta **`Web/`** contiene también el código (`index.html`) y la base de datos (`BD_ZIZI_Pagos.xlsx`). Esa copia no tiene una dirección web propia, pero es prácticamente lo mismo que está publicado.
 
